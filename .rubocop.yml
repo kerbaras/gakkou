@@ -2,7 +2,5 @@ Rails:
   Enabled: true
 Style/CollectionMethods:
   Enabled: true
-Style/MethodCallWithArgsParentheses:
-  Enabled: true
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
