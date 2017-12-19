@@ -52,6 +52,6 @@ class CoursesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def course_params
-    params.fetch(:course, {})
+    params.fetch(:course).permit(:year)
   end
 end
