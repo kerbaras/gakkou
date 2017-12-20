@@ -15,8 +15,37 @@ class Course < ApplicationRecord
   end
 
   delegate :year, to: :from
+  delegate :month, to: :from
+
+  def months
+    ((to.to_time - from.to_time) / 1.month.second).ceil
+  end
 
   def period
-    (from - to).month
+    case months
+    when 12
+      'anual'
+    when 6
+      'semester'
+    when 4
+      'quarter'
+    when 3
+      'trimester'
+    when 2
+      'bimester'
+    end
+  end
+
+  def offset
+    1 + (month / months).to_i
+  end
+
+  def human
+    case months
+    when 1
+      I18n.l(from, format: :month)
+    else
+      I18n.t("course.periods.#{period}", number: offset)
+    end
   end
 end
