@@ -31,13 +31,3 @@
 
 en:
   hello: "Hello world"
-  date:
-    formats:
-      month: "%B"
-  course:
-    periods:
-      anual: "Anual"
-      semester: "%{number}º Semester"
-      quarter: "%{number}º Quarter"
-      trimester: "%{number}º Trimester"
-      bimester: "%{number}º Bimester"
