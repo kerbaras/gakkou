@@ -1,0 +1,17 @@
+@import "_anchor";
+@import "_layout";
+@import "_sidebar";
+@import "_pageheader";
+@import "_breadcrumb";
+@import "_dropdown";
+@import "_menu";
+@import "_navbar";
+@import "_card";
+@import "_button";
+@import "_table";
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    min-height: 100vh;
+}
