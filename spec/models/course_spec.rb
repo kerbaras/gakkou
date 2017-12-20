@@ -6,7 +6,7 @@ RSpec.describe Course, type: :model do
   end
 
   it 'should not overlap with other course' do
-    Course.create! from: Date.new(2011, 1, 1), end: Date.new(2011, 6, 1)
+    Course.create! from: Date.new(2011, 1, 1), to: Date.new(2011, 6, 1)
     @course.from = Date.new(2011, 5, 1)
     @course.to = Date.new(2011, 7, 1)
     expect(@course.valid?).to eq false
