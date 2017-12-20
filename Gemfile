@@ -7,12 +7,13 @@ end
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
-gem 'rails', '~> 5.1.4'
 gem 'pg'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.4'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
+gem 'validates_overlap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
