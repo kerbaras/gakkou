@@ -2,6 +2,6 @@
 # enroll and sign up for tests
 # it should only be one per year
 class Course < ApplicationRecord
-  validates :start, presence: true
-  validates :end, presence: true
+  validates :from, presence: true
+  validates :to, presence: true
 end
