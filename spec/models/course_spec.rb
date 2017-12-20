@@ -5,22 +5,30 @@ RSpec.describe Course, type: :model do
     @course = Course.new
   end
 
-  it 'should not be two courses at the same year' do
-    Course.create year: 2011
-    @course.year = 2011
+  it 'should not overlap with other course' do
+    Course.create! start: Date.new(2011, 1, 1), end: Date.new(2011, 6, 1)
+    @course.start = Date.new(2011, 5, 1)
+    @course.end = Date.new(2011, 7, 1)
     expect(@course.valid?).to eq false
   end
 
-  it 'should be invalid without a year' do
+  it 'should be invalid without a start date' do
+    @course.end = Date.new(2011, 7, 1)
     expect(@course.valid?).to eq false
   end
 
-  it 'should have a valid year' do
-    @course.year = 'hola'
+  it 'should be invalid without an end date' do
+    @course.start = Date.new(2011, 5, 1)
+    expect(@course.valid?).to eq false
+  end
+
+  it 'should have a valid lapse' do
+    @course.end = Date.new(2011, 5, 1)
+    @course.start = Date.new(2011, 7, 1)
     expect(@course.valid?).to eq(false)
-    @course.year = 11
-    expect(@course.valid?).to eq(false)
-    @course.year = 2015
+
+    @course.start = Date.new(2011, 5, 1)
+    @course.end = Date.new(2011, 7, 1)
     expect(@course.valid?).to eq(true)
   end
 end
