@@ -2,7 +2,6 @@
 # enroll and sign up for tests
 # it should only be one per year
 class Course < ApplicationRecord
-  validates :year, presence: true
-  validates :year, uniqueness: true
-  validates :year, format: { with: /\A[1-9]\d{3}\z/ }
+  validates :start, presence: true
+  validates :end, presence: true
 end
