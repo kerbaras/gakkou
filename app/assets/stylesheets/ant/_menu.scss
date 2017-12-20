@@ -1,0 +1,36 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+  justify-content: baseline;
+  & > .menu-item {
+    height: 40px;
+    margin: 2px 0;
+    line-height: 40px;
+    display: flex;
+    align-items: stretch;
+
+    & > a {
+      padding: 0 16px;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      display: flex;
+      flex: auto;
+      align-items: center;
+      justify-content: baseline;
+
+      i{
+        min-width: 14px;
+        margin-right: 10px;
+      }
+    }
+
+    &:hover {
+      color: #40a9ff;
+      background: rgba(0, 0, 0, 0.25);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.dropdown-menu {
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 0;
+
+  .dropdown-item {
+    padding: 5px 12px;
+    margin: 0;
+    clear: both;
+    color: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #e6f7ff;
+    }
+  }
+}

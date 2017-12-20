@@ -1,0 +1,41 @@
+.table {
+  border-radius: 4px 4px 0 0;
+
+  &.table-bordered {
+    th td {
+      border: 1px solid #e8e8e8;
+    }
+  }
+
+  thead > tr > th {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  th {
+    background: #fafafa;
+    transition: background 0.3s ease;
+  }
+
+  .test {
+    text-align: center;
+    width: 200px;
+    test-entry {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+
+      span {
+        flex: 1 0;
+        text-align: left;
+      }
+
+      grade {
+        flex: 0 1;
+        text-align: right;
+      }
+    }
+  }
+}
