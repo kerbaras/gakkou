@@ -23,6 +23,7 @@
       <div class="card hoverable">
         <div class="card-body">
           <h4 class="card-title">Course <%= course.year %></h4>
+          <span class="course-period"><%= course.human %></span>
         </div>
         <div class="card-footer action-list">
             <%= link_to course, class: 'action' do %>
