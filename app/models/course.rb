@@ -4,4 +4,19 @@
 class Course < ApplicationRecord
   validates :from, presence: true
   validates :to, presence: true
+  validates :from, :to, overlap: true
+  validate :valid_lapse
+
+  def valid_lapse
+    errors.add(:from, 'must be less than the end') if
+      !from.nil? &&
+      !to.nil? &&
+      from >= to
+  end
+
+  delegate :year, to: :from
+
+  def period
+    (from - to).month
+  end
 end
