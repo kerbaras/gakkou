@@ -15,3 +15,10 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-datepicker
+
+$(() => {
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    })
+})
