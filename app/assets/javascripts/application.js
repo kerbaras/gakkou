@@ -21,4 +21,6 @@ $(() => {
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd'
     })
+
+    $('.message .notice').fadeOut(6000)
 })

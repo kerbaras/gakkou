@@ -45,7 +45,8 @@ class Course < ApplicationRecord
     when 1
       I18n.l(from, format: :month)
     else
-      I18n.t("course.periods.#{period}", number: offset)
+      I18n.l(from, format: :month).to_s + ' - ' +
+        I18n.l(to, format: :month).to_s
     end
   end
 end

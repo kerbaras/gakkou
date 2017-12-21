@@ -1,5 +1,5 @@
 class DatePickerInput < SimpleForm::Inputs::Base
-  def input
+  def input(_)
     template.content_tag(:div, class: 'input-group date form_datetime') do
       template.concat @builder.text_field(attribute_name, input_html_options)
       template.concat span_icon
@@ -7,7 +7,7 @@ class DatePickerInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge(class: 'form-control datepicker no-readonly', readonly: true)
+    super.merge(class: 'form-control datepicker no-readonly')
   end
 
   def span_icon

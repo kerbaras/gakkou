@@ -1,0 +1,63 @@
+.message {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: fixed;
+  z-index: 1010;
+  width: 100%;
+  top: 16px;
+  left: 0;
+  pointer-events: none;
+
+  i {
+    margin-right: 8px;
+    font-size: 16px;
+    top: 1px;
+    position: relative;
+  }
+
+  .notice {
+    padding: 8px;
+    text-align: center;
+
+    &:first-child {
+      margin-top: -8px;
+    }
+
+    .content {
+      padding: 10px 16px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: #fff;
+      display: inline-block;
+      pointer-events: all;
+    }
+
+    .success {
+      i {
+        color: #52c41a;
+      }
+    }
+
+    .danger {
+      i {
+        color: #f5222d;
+      }
+    }
+
+    .warning {
+      i {
+        color: #faad14;
+      }
+    }
+
+    .info {
+      i {
+        color: #1890ff;
+      }
+    }
+  }
+}
