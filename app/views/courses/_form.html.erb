@@ -1,17 +1,10 @@
-<%= form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<%= simple_form_for course, wrapper: :horizontal_form do |form| %>
+    
+  <%= form.input :from, as: :date_picker %>
+  <%= form.input :to, as: :date_picker %>
 
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= link_to t(:cancel), courses_path, class: "btn btn-secondary" %>
+    <%= form.button :submit, class: "btn-primary" %>
   </div>
-<% end %>
+  <% end %>

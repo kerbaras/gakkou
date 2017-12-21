@@ -56,6 +56,22 @@
       </layout>
     </layout>
   </layout>
+
+  <div class="message"> 
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+      <div class="notice">
+        <div class="content <%= name.to_s == 'notice' ? 'success' : 'danger' %>"
+             role="alert">
+        <i class="material-icons">
+          <%= name.to_s == 'notice' ? 'check_circle' : 'error' %>
+        </i>
+        <%= msg %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
 </body>
 
 </html>

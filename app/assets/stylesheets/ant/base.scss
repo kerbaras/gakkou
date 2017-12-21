@@ -9,9 +9,14 @@
 @import "_card";
 @import "_button";
 @import "_table";
+@import "_message";
 
 body {
     background-color: #f0f2f5;
     display: flex;
     min-height: 100vh;
+}
+
+.no-readonly{
+    background: #fff!important;
 }
