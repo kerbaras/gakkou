@@ -21,19 +21,19 @@ RSpec.describe Student, type: :model do
   it 'should have an unique identification' do
     Student.create name: 'Name2', lastname: 'Lastname',
                    identification: 39_831_249, number: '13714/1'
-    expect(@course.valid?).to eq false
+    expect(@student.valid?).to eq false
   end
 
   it 'should have an unique number' do
     Student.create name: 'Name2', lastname: 'Lastname',
                    identification: 39_831_248, number: '13714/0'
-    expect(@course.valid?).to eq false
+    expect(@student.valid?).to eq false
   end
 
   it 'should have a valid number' do
-    @course.number = '14/'
-    expect(@course.valid?).to eq false
-    @course.number = '/0'
-    expect(@course.valid?).to eq false
+    @student.number = '14/'
+    expect(@student.valid?).to eq false
+    @student.number = '/0'
+    expect(@student.valid?).to eq false
   end
 end
