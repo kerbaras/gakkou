@@ -1,0 +1,6 @@
+Rails:
+  Enabled: true
+Style/CollectionMethods:
+  Enabled: true
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true

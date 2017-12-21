@@ -1,0 +1,10 @@
+<%= simple_form_for course, wrapper: :horizontal_form do |form| %>
+    
+  <%= form.input :from, as: :date_picker %>
+  <%= form.input :to, as: :date_picker %>
+
+  <div class="actions text-right">
+    <%= link_to t(:cancel), courses_path, class: "btn btn-secondary" %>
+    <%= form.button :submit, class: "btn-primary" %>
+  </div>
+  <% end %>
