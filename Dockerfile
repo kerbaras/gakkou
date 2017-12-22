@@ -10,3 +10,5 @@ COPY Gemfile.lock /gakkou/Gemfile.lock
 RUN bundle install
 
 COPY . /gakkou
+
+RUN db:setup
