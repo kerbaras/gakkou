@@ -1,27 +1,32 @@
 # Gakkou
 
-[![Build Status](https://travis-ci.org/matias-pierobon/gakkou.svg?branch=development)](https://travis-ci.org/matias-pierobon/gakkou)
+[![Build Status](https://travis-ci.org/matias-pierobon/gakkou.svg?branch=master)](https://travis-ci.org/matias-pierobon/gakkou)
 [![license](https://img.shields.io/github/license/matias-pierobon/gakkou.svg)](https://github.com/matias-pierobon/gakkou/blob/master/LICENSE)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/matias-pierobon/gakkou.svg)]()
 
 Gakkou it's a class managment system design as a main task for a subject at the CS Department of UNLP.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Gakkou uses docker for production and development
 
-* System dependencies
+to run the application you'll need `docker` and `docker-compose`
 
-* Configuration
+### Build the app
+```bash
+docker-compose build
+```
 
-* Database creation
+### Run the app
+```bash
+docker-compose up -d
+```
 
-* Database initialization
+### Setup the database
+```bash
+docker-compose exec web bundle exec rails db:setup
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Shutdown
+```bash
+docker-compose down
+```
