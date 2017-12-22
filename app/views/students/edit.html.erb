@@ -1,20 +1,22 @@
-
 <% content_for :breadcrumb do %>
   <li class="breadcrumb-item" aria-current="page">
     <%= link_to courses_path do %>
       <i class="material-icons">school</i>
-      <%= t "courses.title" %>
+      <%= t "students.title" %>
     <% end %>
   </li>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= @student.lastname %>, <%= @student.name %>
+  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <%= t("breadcrumb.new") %> 
+    <%= t("breadcrumbs.edit") %> 
   </li>
 <% end %>
 
 <% content_for :content do %>
 
   <div class="row">
-    <div class="col col-md-8 col-lg-6 col-xl-4">
+    <div class="col col-md-8 col-lg-6 col-xl-5">
       <div class="card">
         <div class="card-body">
           <%= render 'form', course: @course %>
@@ -24,6 +26,5 @@
   </div>
 
 <% end %>
-
 
 <%= render "layout" %>

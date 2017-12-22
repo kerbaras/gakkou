@@ -23,9 +23,10 @@ development:
 test:
   <<: *default
   database: gakkou_test
+  host: <%= ENV['POSTGRES_TEST_HOST'] %>
+  username: <%= ENV['POSTGRES_TEST_USER'] %>
+  password: <%= ENV['POSTGRES_TEST_PASSWORD'] %>
 
 production:
   <<: *default
-  database: <%= ENV['POSTGRES_DB'] %>
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  url: <%= ENV['POSTGRES_URL'] %>

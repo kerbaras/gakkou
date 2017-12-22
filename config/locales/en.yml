@@ -34,10 +34,19 @@ en:
   date:
     formats:
       month: "%B"
-  course:
-    periods:
-      anual: "Anual"
-      semester: "%{number}º Semester"
-      quarter: "%{number}º Quarter"
-      trimester: "%{number}º Trimester"
-      bimester: "%{number}º Bimester"
+  courses:
+    title: "Courses"
+    add: "Add Course"
+  students:
+    title: "Students"
+    name: "Name"
+    lastname: "Lastname"
+    identification: "Identification"
+    number: "Number"
+    actions: "Actions"
+    new: "Add Student"
+  breadcrums:
+    new: "New"
+    edit: "Edit"
+  edit: "Edit"
+  destroy: "Destroy"

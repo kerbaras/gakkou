@@ -2,6 +2,8 @@
 # enroll and sign up for tests
 # it should only be one per year
 class Course < ApplicationRecord
+  has_many :enrollments
+
   validates :from, presence: true
   validates :to, presence: true
   validates :from, :to, overlap: true
@@ -16,6 +18,16 @@ class Course < ApplicationRecord
 
   delegate :year, to: :from
   delegate :month, to: :from
+
+  def sorted_enrollments
+    enrollments.sort_by(&:full_name)
+  end
+
+  def all_rest_students
+    Student
+      .all_except(enrollments.map { |enrollment| enrollment.student.id })
+      .sort_by(&:full_name)
+  end
 
   def months
     ((to.to_time - from.to_time) / 1.month.second).ceil
