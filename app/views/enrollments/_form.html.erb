@@ -1,0 +1,8 @@
+<%= simple_form_for @enrollment, url: course_enrollments_path do |f| %>
+  
+  <%= f.association :student, collection: @course.all_rest_students %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

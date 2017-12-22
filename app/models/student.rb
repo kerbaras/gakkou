@@ -8,4 +8,18 @@ class Student < ApplicationRecord
   validates :number, presence: true
   validates :number, uniqueness: true
   validates :number, format: { with: /\A\d+\/\d\z/ }
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with:
+                       /\A[a-zA-Z0-9_\-.]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9\-.]+\z/ }
+
+  scope :all_except, ->(user) { where.not(id: user) }
+
+  def to_label
+    "#{full_name} (#{identification})"
+  end
+
+  def full_name
+    "#{lastname}, #{name}"
+  end
 end
