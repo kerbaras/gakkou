@@ -1,6 +1,30 @@
-<h1>Editing Student</h1>
+<% content_for :breadcrumb do %>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= link_to courses_path do %>
+      <i class="material-icons">school</i>
+      <%= t "students.title" %>
+    <% end %>
+  </li>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= @student.lastname %>, <%= @student.name %>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <%= t("breadcrumbs.edit") %> 
+  </li>
+<% end %>
 
-<%= render 'form', student: @student %>
+<% content_for :content do %>
 
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+  <div class="row">
+    <div class="col col-md-8 col-lg-6 col-xl-5">
+      <div class="card">
+        <div class="card-body">
+          <%= render 'form', course: @course %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<%= render "layout" %>

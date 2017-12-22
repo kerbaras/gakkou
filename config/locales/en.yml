@@ -41,3 +41,16 @@ en:
       quarter: "%{number}º Quarter"
       trimester: "%{number}º Trimester"
       bimester: "%{number}º Bimester"
+  students:
+    title: "Students"
+    name: "Name"
+    lastname: "Lastname"
+    identification: "Identification"
+    number: "Number"
+    actions: "Actions"
+    new: "Add Student"
+  breadcrums:
+    new: "New"
+    edit: "Edit"
+  edit: "Edit"
+  destroy: "Destroy"
