@@ -4,10 +4,10 @@
 <head>
   <title>Gakkou</title>
   <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
@@ -29,6 +29,12 @@
             <i class="material-icons">people</i>
             <span> Users </span>
           </a>
+        </li>
+        <li class="menu-item">
+          <%= link_to students_path do %>
+            <i class="material-icons">contacts</i>
+            <span><%= t 'students.title' %></span>
+          <% end %>
         </li>
       </ul>
     </aside>

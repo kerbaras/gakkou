@@ -1,17 +1,12 @@
 <% content_for :breadcrumb do %>
   <li class="breadcrumb-item" aria-current="page">
-    <%= link_to courses_path do %>
+    <%= link_to students_path do %>
       <i class="material-icons">school</i>
-      <%= t "courses" %>
-    <% end %>
-  </li>
-  <li class="breadcrumb-item" aria-current="page">
-    <%= link_to @course do %>
-      <%= @course.year %> <%= @course.human %>
+      <%= t "students.title" %>
     <% end %>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <%= t("course.breadcrumb.edit") %> 
+    <%= t("breadcrumb.new") %> 
   </li>
 <% end %>
 
@@ -21,7 +16,8 @@
     <div class="col col-md-8 col-lg-6 col-xl-4">
       <div class="card">
         <div class="card-body">
-          <%= render 'form', course: @course %>
+          <h4 class="card-title"><%= t 'students.new' %></h4>
+          <%= render 'form', course: @student %>
         </div>
       </div>
     </div>

@@ -1,0 +1,10 @@
+<%= simple_form_for(@student) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :lastname %>
+    <%= f.input :identification %>
+    <%= f.input :number %>
+
+  <div class="form-actions text-right">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>
