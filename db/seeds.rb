@@ -15,3 +15,15 @@
     number: "#{Faker::Number.unique.number(7)}/#{Faker::Number.digit}"
   )
 end
+
+Course.create!(from: Date.new(2012, 3), to: Date.new(2012, 8))
+Course.create!(from: Date.new(2012, 8, 2), to: Date.new(2013, 3))
+Course.create!(from: Date.new(2014, 3), to: Date.new(2015, 3))
+Course.create!(from: Date.new(2015, 3, 2), to: Date.new(2015, 8))
+
+Enrollment.create!(student_id: 1, course_id: 1)
+Enrollment.create!(student_id: 1, course_id: 2)
+Enrollment.create!(student_id: 2, course_id: 1)
+Enrollment.create!(student_id: 3, course_id: 1)
+Enrollment.create!(student_id: 4, course_id: 2)
+Enrollment.create!(student_id: 5, course_id: 2)
