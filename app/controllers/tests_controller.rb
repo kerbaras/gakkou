@@ -1,18 +1,11 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [:show, :edit, :update, :destroy]
-
-  # GET /tests
-  def index
-    @tests = Test.all
-  end
-
-  # GET /tests/1
-  def show
-  end
+  before_action :set_course
+  before_action :set_test, only: [:edit, :update, :destroy]
 
   # GET /tests/new
   def new
     @test = Test.new
+    @test.course = @course
   end
 
   # GET /tests/1/edit
@@ -22,9 +15,10 @@ class TestsController < ApplicationController
   # POST /tests
   def create
     @test = Test.new(test_params)
+    @test.course = @course
 
     if @test.save
-      redirect_to @test, notice: 'Test was successfully created.'
+      redirect_to @course, notice: 'Test was successfully created.'
     else
       render :new
     end
@@ -33,7 +27,7 @@ class TestsController < ApplicationController
   # PATCH/PUT /tests/1
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
+      redirect_to @course, notice: 'Test was successfully updated.'
     else
       render :edit
     end
@@ -50,9 +44,14 @@ class TestsController < ApplicationController
     def set_test
       @test = Test.find(params[:id])
     end
+    
+    # Use callbacks to share common setup or constraints between actions.
+    def set_course
+      @course = Course.find(params[:course_id])
+    end
 
     # Only allow a trusted parameter "white list" through.
     def test_params
-      params.require(:test).permit(:course_id, :date, :title, :base_grade, :upper_grade)
+      params.require(:test).permit(:date, :title, :min, :max)
     end
 end

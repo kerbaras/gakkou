@@ -4,8 +4,8 @@ class CreateTests < ActiveRecord::Migration[5.1]
       t.references :course, foreign_key: true
       t.date :date
       t.string :title
-      t.integer :base_grade
-      t.integer :upper_grade
+      t.integer :min
+      t.integer :max
 
       t.timestamps
     end

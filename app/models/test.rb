@@ -1,13 +1,23 @@
 class Test < ApplicationRecord
   belongs_to :course
 
-  validates :date, precence: true
+  validates :date, presence: true
   validates :date, uniqueness: { scope: :course }
-  validates :title, precence: true
-  validates :course, precence: true
+  validates :title, presence: true
+  validates :course, presence: true
+  validates :min, presence: true
+  validates :min, numericality: { only_integer: true, greater_than: 0 }
+  validates :max, presence: true
+  validates :max, numericality: { only_integer: true, greater_than: :min }
+  validate :date_lapse
 
-  validate do
-    errors.add(:date, :invalid) if course.isNull? &&
-                                   course.from <= date <= course.end
+  def date_lapse
+    errors.add(:date, "must be in the course") if 
+      !course.nil? &&
+      !((course.from .. course.to) === date)
+  end
+
+  def params
+    [course_id, id]
   end
 end

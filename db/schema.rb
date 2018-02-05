@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171222213207) do
+ActiveRecord::Schema.define(version: 20171222233011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20171222213207) do
     t.string "email"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.bigint "course_id"
+    t.date "date"
+    t.string "title"
+    t.integer "min"
+    t.integer "max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_tests_on_course_id"
+  end
+
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "students"
+  add_foreign_key "tests", "courses"
 end

@@ -1,15 +1,14 @@
-<%= simple_form_for(@test) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @test, url: url do |f| %>
 
   <div class="form-inputs">
-    <%= f.association :course %>
-    <%= f.input :date %>
+    <%= f.input :date, as: :date_picker %>
     <%= f.input :title %>
-    <%= f.input :base_grade %>
-    <%= f.input :upper_grade %>
+    <%= f.input :min %>
+    <%= f.input :max %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="actions text-right">
+    <%= link_to t(:cancel), courses_path, class: "btn btn-secondary" %>
+    <%= f.button :submit, class: "btn-primary" %>
   </div>
 <% end %>

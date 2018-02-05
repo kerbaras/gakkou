@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Test, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'Should be invalid without a title' do
+  end
+
+  it 'Should have a score rank' do
+  end
+
+  it 'Should have a valid date' do
+  end
 end

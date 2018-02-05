@@ -1,5 +1,36 @@
-<h1>New Test</h1>
+<% content_for :breadcrumb do %>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= link_to courses_path do %>
+      <i class="material-icons">school</i>
+      <%= t 'courses.title' %>
+    <% end %>
+  </li>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= link_to @course do %>
+      <%= @course.year %> <%= @course.human %>
+    <% end %>
+  </li>
+  <li class="breadcrumb-item" aria-current="page">
+    <%= t("breadcrumb.tests") %> 
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <%= t("breadcrumb.new") %> 
+  </li>
+<% end %>
 
-<%= render 'form', test: @test %>
+<% content_for :content do %>
 
-<%= link_to 'Back', tests_path %>
+  <div class="row">
+    <div class="col col-lg-10 col-xl-8">
+      <div class="card">
+        <div class="card-body">
+          <%= render 'form', test: @test, url: course_tests_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+
+<%= render "courses/layout" %>
