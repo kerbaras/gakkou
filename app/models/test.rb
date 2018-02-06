@@ -16,8 +16,4 @@ class Test < ApplicationRecord
       !course.nil? &&
       !((course.from .. course.to) === date)
   end
-
-  def params
-    [course_id, id]
-  end
 end
