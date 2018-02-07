@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
   belongs_to :course
+  has_many :assistances
 
   validates :date, presence: true
   validates :date, uniqueness: { scope: :course }
