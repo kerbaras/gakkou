@@ -11,23 +11,23 @@ RSpec.describe Test, type: :model do
   end
 
   it 'Should be invalid without a title' do
-    test.title = nil
-    expect(course.valid?).to eq false
+    @test.title = nil
+    expect(@test.valid?).to eq false
   end
 
   it 'Should have a score rank' do
-    test.min = 0
-    expect(course.valid?).to eq false
+    @test.min = 0
+    expect(@test.valid?).to eq false
   end
 
   it 'Should have a valid score rank' do
-    test.min = 10
-    test.max = 5
-    expect(course.valid?).to eq false
+    @test.min = 10
+    @test.max = 5
+    expect(@test.valid?).to eq false
   end
 
   it 'Should have a valid date' do
-    test.date = Date.new(2012, 2, 1)
-    expect(course.valid?).to eq false
+    @test.date = Date.new(2012, 2, 1)
+    expect(@test.valid?).to eq false
   end
 end
