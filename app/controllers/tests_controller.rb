@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_course
-  before_action :set_test, only: [:edit, :update, :destroy]
+  before_action :set_test, only: %i[edit update destroy]
 
   # GET /tests/new
   def new
@@ -9,8 +9,7 @@ class TestsController < ApplicationController
   end
 
   # GET /tests/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tests
   def create
@@ -36,22 +35,23 @@ class TestsController < ApplicationController
   # DELETE /tests/1
   def destroy
     @test.destroy
-    redirect_to tests_url, notice: 'Test was successfully destroyed.'
+    redirect_to @course, notice: 'Test was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_test
-      @test = Test.find(params[:id])
-    end
-    
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:course_id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def test_params
-      params.require(:test).permit(:date, :title, :min, :max)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_test
+    @test = Test.find(params[:id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:course_id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def test_params
+    params.require(:test).permit(:date, :title, :min, :max)
+  end
 end
