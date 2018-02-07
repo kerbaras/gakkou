@@ -3,6 +3,7 @@
 # it should only be one per year
 class Course < ApplicationRecord
   has_many :enrollments
+  has_many :tests
 
   validates :from, presence: true
   validates :to, presence: true
@@ -21,6 +22,10 @@ class Course < ApplicationRecord
 
   def sorted_enrollments
     enrollments.sort_by(&:full_name)
+  end
+
+  def sorted_tests
+    tests.sort_by(&:date)
   end
 
   def all_rest_students
