@@ -18,9 +18,25 @@
 //= require bootstrap-datepicker
 
 $(() => {
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd'
-    })
+  $(".datepicker").datepicker({
+    format: "yyyy-mm-dd"
+  })
 
-    $('.message .notice').fadeOut(6000)
+  $(".message .notice").fadeOut(6000)
+
+  let assistances = document.querySelectorAll(".test-table tbody .test")
+  let pops = document.querySelectorAll(".test-table tbody .test .popconfirm")
+  assistances.forEach(assistance => {
+    let popconfirm = assistance.querySelector(".popconfirm")
+    let btnClose = popconfirm.querySelector(".cls")
+
+    assistance.onclick = function () {
+      pops.forEach(p => p.classList.remove("open"))
+      popconfirm.classList.add("open")
+    }
+
+    btnClose.onclick = function(){
+      pops.forEach(p => p.classList.remove("open"))
+    }
+  })
 })

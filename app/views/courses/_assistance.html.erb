@@ -1,0 +1,14 @@
+<% if assistance.nil? %>
+  <span class="text-center text-warning"><%= t 'absent' %></span>
+  <%= render 'popover', assistance: Assistance.new(test: test, enrollment: enrollment) %>
+<% else %> 
+  <% if assistance.grade? %> 
+    <test-entry class="text-<%= assistance.approved? ? 'success' : 'danger' %>">
+      <span><%= t(assistance.approved? ? "pass" : "fail") %></span>
+      <grade><%= assistance.grade %></grade>
+    </test-entry>
+  <% else %>
+    <span class="text-center text-info"><%= t 'present' %></span>
+  <% end %>
+  <%= render 'popover', assistance: assistance %>
+<% end %>

@@ -50,18 +50,16 @@
             <td><%= enrollment.number %></td>
             <td>
               <%= link_to course_enrollment_path(@course, enrollment),
-                  class: 'btn btn-danger', method: :delete, 
+                  class: 'text-danger', method: :delete, 
                   data: { confirm: 'Are you sure?' } do %>
-                <i class="material-icons">delete</i>
+                <i class="material-icons md-18">delete</i>
               <% end %>
             </td>
 
             <% @course.sorted_tests.each do |test| %>
-            <td class="test text-success">
-              <test-entry>
-                <span>Aprobado</span>
-                <grade>9</grade>
-              </test-entry>
+            <td class="test">
+              <%= render 'assistance', assistance: enrollment.assistance_for_test(test),
+                                       test: test, enrollment: enrollment %>
             </td>
             <% end %>
           </tr>
@@ -69,19 +67,31 @@
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="3">Porcentaje Aprobado</th>
+            <th colspan="3">Approved ammount.</th>
             <% @course.sorted_tests.each do |test| %>
-            <td></td>
+            <td><%= test.approved_ammount %></td>
             <% end %>
           </tr>
           <tr>
-            <th colspan="3">Porcentaje Rendido</th>
+            <th colspan="3">Fail ammount.</th>
             <% @course.sorted_tests.each do |test| %>
-            <td></td>
+            <td><%= test.fail_ammount %></td>
             <% end %>
           </tr>
           <tr>
-            <th colspan="3">Nota de Aprobación</th>
+            <th colspan="3">Absent ammount</th>
+            <% @course.sorted_tests.each do |test| %>
+            <td><%= test.absent_ammount %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <th colspan="3">Approved porcent</th>
+            <% @course.sorted_tests.each do |test| %>
+            <td><%= test.porcent_approved %>%</td>
+            <% end %>
+          </tr>
+          <tr>
+            <th colspan="3">Approval grade</th>
             <% @course.sorted_tests.each do |test| %>
             <td><%= test.min %>/<%= test.max %></td>
             <% end %>

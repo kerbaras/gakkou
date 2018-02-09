@@ -3,9 +3,10 @@ class Assistance < ApplicationRecord
   belongs_to :test
 
   validates :grade, numericality: { greater_than_or_equal_to: 0,
-                                    less_than_or_equal_to: 1 }
+                                    less_than_or_equal_to: :max }, allow_blank: true
   validates :test, presence: true
   validates :enrollment, presence: true
+  validates :enrollment, uniqueness: { scope: :test }
   validate do |assistance|
     unless assistance.test.course == assistance.enrollment.course
       assistance.errors.add(%i[test enrollment],
@@ -13,7 +14,10 @@ class Assistance < ApplicationRecord
     end
   end
 
-  def approved?; end
+  delegate :course, to: :test
+  delegate :max, to: :test
 
-  def corrected?; end
+  def approved?
+    test.approved? grade
+  end
 end

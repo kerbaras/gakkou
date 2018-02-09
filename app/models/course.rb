@@ -34,6 +34,10 @@ class Course < ApplicationRecord
       .sort_by(&:full_name)
   end
 
+  def ammount_students
+    enrollments.size
+  end
+
   def months
     ((to.to_time - from.to_time) / 1.month.second).ceil
   end

@@ -23,6 +23,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

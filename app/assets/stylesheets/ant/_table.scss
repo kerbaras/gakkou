@@ -22,6 +22,8 @@
   .test {
     text-align: center;
     width: 200px;
+    position: relative;
+
     test-entry {
       display: flex;
       flex-direction: row;

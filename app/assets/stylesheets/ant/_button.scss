@@ -10,6 +10,13 @@
   align-items: center;
   justify-content: center;
 
+  &.btn-sm{
+    padding: 0 7px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 24px;
+  }
+
   &.btn-ant {
     color: rgba(0, 0, 0, 0.65);
     background-color: #fff;
