@@ -37,7 +37,7 @@ class Test < ApplicationRecord
   end
 
   def assistances_approved
-    assistances.select(&:approved?)
+    assistances.select(&:grade?).select(&:approved?)
   end
 
   def approved_ammount
