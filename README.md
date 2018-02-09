@@ -30,3 +30,8 @@ docker-compose exec web bundle exec rails db:setup
 ```bash
 docker-compose down
 ```
+
+## Usage
+
+A live demo is setup in a heroku app [https://intense-peak-30761.herokuapp.com/](https://intense-peak-30761.herokuapp.com/)
+You may use the username `admin@admin.com` and the password  `123456` to login.
