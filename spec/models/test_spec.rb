@@ -8,6 +8,15 @@ RSpec.describe Test, type: :model do
                      min: 9,
                      max: 10
     @test.course = @course
+    10.times { @course.enrollments.new }
+    5.times do
+      e = @course.enrollments.new
+      @test.assistances.new grade: 1, enrollment: e
+    end
+    5.times do
+      e = @course.enrollments.new
+      @test.assistances.new grade: 10, enrollment: e
+    end
   end
 
   it 'Should be invalid without a title' do
@@ -29,5 +38,26 @@ RSpec.describe Test, type: :model do
   it 'Should have a valid date' do
     @test.date = Date.new(2012, 2, 1)
     expect(@test.valid?).to eq false
+  end
+
+  it 'should know when a grade has passed' do
+    expect(@test.approved?(1)).to eq false
+    expect(@test.approved?(10)).to eq true
+  end
+
+  it 'should know the ammount of approvals' do
+    expect(@test.approved_ammount).to eq 5.to_f
+  end
+
+  it 'should know the ammount of failures' do
+    expect(@test.fail_ammount).to eq 5.to_f
+  end
+
+  it 'should know the ammount of absents' do
+    expect(@test.absent_ammount).to eq 10.to_f
+  end
+
+  it 'should know the porcentage of approvals' do
+    expect(@test.porcent_approved).to eq 50.to_f
   end
 end

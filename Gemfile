@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'bootstrap-datepicker-rails'
+gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.7'

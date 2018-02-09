@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_course
   before_action :set_test, only: %i[edit update destroy]
 

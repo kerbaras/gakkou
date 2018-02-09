@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :students, except: :show
   resources :courses do
     resources :enrollments, only: %i[new create destroy]

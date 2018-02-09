@@ -1,4 +1,5 @@
 class EnrollmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_course, only: %i[index new create destroy]
   before_action :set_enrollment, only: %i[destroy]
 
